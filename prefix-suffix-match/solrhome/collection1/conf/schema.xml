@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="example" version="1.5">
+    <fields>
+        <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+        <field name="text" type="text_general" indexed="true" stored="false"/>
+        <field name="text_prefix" type="text_prefix" indexed="true" stored="false"/>
+        <field name="text_suffix" type="text_suffix" indexed="true" stored="false"/>
+    </fields>
+    <uniqueKey>id</uniqueKey>
+    <copyField source="text" dest="text_prefix"/>
+    <copyField source="text" dest="text_suffix"/>
+    <types>
+        <!-- The StrField type is not analyzed, but indexed/stored verbatim. -->
+        <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+
+        <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_prefix" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+                <filter class="solr.EdgeNGramFilterFactory" minGramSize="3" maxGramSize="15" side="front"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+            </analyzer>
+        </fieldType>
+
+<!--        <fieldType name="text_suffix" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.EdgeNGramFilterFactory" minGramSize="3" maxGramSize="15" side="back"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>-->
+
+        <fieldType name="text_suffix" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+                <filter class="solr.ReverseStringFilterFactory"/>
+                <filter class="solr.EdgeNGramFilterFactory" minGramSize="3" maxGramSize="15" side="front"/>
+                <filter class="solr.ReverseStringFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+            </analyzer>
+        </fieldType>
+
+    </types>
+</schema>

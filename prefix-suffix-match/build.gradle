@@ -1,0 +1,40 @@
+import org.gradle.api.plugins.jetty.JettyRunWar
+
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+repositories {
+    mavenCentral()
+}
+
+// custom configuration for running the webapp
+configurations {
+    solrWebApp
+}
+
+dependencies {
+    //solrWebApp "org.apache.solr:solr:4.0.0@war"
+    solrWebApp "org.apache.solr:solr:4.7.0@war"
+    testCompile "junit:junit:4.10"
+    //testCompile "org.apache.solr:solr-test-framework:4.0.0"
+    testCompile("org.apache.solr:solr-test-framework:4.7.0") {
+        exclude group: 'org.restlet.jee'
+    }
+    testCompile "org.slf4j:slf4j-simple:1.6.1"
+    testCompile "commons-logging:commons-logging:1.1.3"
+}
+
+// custom task that configures the jetty plugin
+task runSolr(type: JettyRunWar) {
+    webApp = configurations.solrWebApp.singleFile
+
+    // jetty configuration
+    httpPort = 8082
+    contextPath = 'solr'
+
+}
+
+// executed before jetty plugin
+runSolr.doFirst {
+    System.setProperty("solr.solr.home", "./solrhome")
+}

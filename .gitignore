@@ -1,0 +1,5 @@
+div/
+solr-4.4-dynamic-schema-fields/
+solr-facet-termquery-example/
+solr-suggester-example/
+termcomponent-suggestions/
