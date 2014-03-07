@@ -10,11 +10,14 @@ repositories {
 // custom configuration for running the webapp
 configurations {
     solrWebApp
+    additionalJettyJars
 }
 
 dependencies {
     //solrWebApp "org.apache.solr:solr:4.0.0@war"
     solrWebApp "org.apache.solr:solr:4.7.0@war"
+    additionalJettyJars "org.slf4j:slf4j-simple:1.6.1"
+    additionalJettyJars "commons-logging:commons-logging:1.1.3"
     testCompile "junit:junit:4.10"
     //testCompile "org.apache.solr:solr-test-framework:4.0.0"
     testCompile("org.apache.solr:solr-test-framework:4.7.0") {
@@ -24,14 +27,23 @@ dependencies {
     testCompile "commons-logging:commons-logging:1.1.3"
 }
 
-// custom task that configures the jetty plugin
-task runSolr(type: JettyRunWar) {
-    webApp = configurations.solrWebApp.singleFile
+def explodedWebAppDir = "${buildDir}/explodedWebAppDir"
 
+// I didn't find a good way to add the slf4j libs to the classpath
+// this workaround copies the contents of the war file to a folder
+// and adds the jars in WEB-INF/lib 
+task runSolr(type: JettyRun, dependsOn: 'copyWar') {
     // jetty configuration
     httpPort = 8082
     contextPath = 'solr'
+    webAppSourceDirectory = file(explodedWebAppDir)
+}
 
+task copyWar(type:Copy) {
+    from zipTree(configurations.solrWebApp.singleFile)
+    into explodedWebAppDir
+    from configurations.additionalJettyJars
+    into explodedWebAppDir + "/WEB-INF/lib/"
 }
 
 // executed before jetty plugin
