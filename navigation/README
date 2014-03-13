@@ -1,0 +1,3 @@
+Example of building navigations from hierarchical data in Solr.
+
+Run <code>gradle test</code> to execute the tests. The Solr configuration is at solrhome.

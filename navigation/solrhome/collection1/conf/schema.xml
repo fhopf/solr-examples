@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="example" version="1.5">
+    <fields>
+        <field name="title" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+        <field name="category" type="category" indexed="true" stored="false"/>
+    </fields>
+    <uniqueKey>title</uniqueKey>
+    <types>
+        <!-- The StrField type is not analyzed, but indexed/stored verbatim. -->
+        <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+
+        <fieldType name="category" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+            </analyzer>
+        </fieldType>
+   </types>
+</schema>
