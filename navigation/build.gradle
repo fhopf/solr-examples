@@ -30,7 +30,7 @@ def explodedWebAppDir = "${buildDir}/explodedWebAppDir"
 // I didn't find a good way to add the slf4j libs to the classpath
 // this workaround copies the contents of the war file to a folder
 // and adds the jars in WEB-INF/lib 
-task runSolr(type: JettyRun, dependsOn: 'copyWar') {
+task runSolr(type: JettyRun, dependsOn: ['copyWar', 'copyLogging']) {
     // jetty configuration
     httpPort = 8082
     contextPath = 'solr'
@@ -38,10 +38,14 @@ task runSolr(type: JettyRun, dependsOn: 'copyWar') {
 }
 
 task copyWar(type:Copy) {
+    into explodedWebAppDir 
     from zipTree(configurations.solrWebApp.singleFile)
-    into explodedWebAppDir
-    from configurations.additionalJettyJars
+}
+
+task copyLogging(type:Copy) {
     into explodedWebAppDir + "/WEB-INF/lib/"
+    from configurations.additionalJettyJars 
+
 }
 
 // executed before jetty plugin
