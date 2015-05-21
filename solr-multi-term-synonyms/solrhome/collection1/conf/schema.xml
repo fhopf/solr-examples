@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="example" version="1.5">
+    <fields>
+        <field name="id" type="string" indexed="true" stored="true" required="true"/>
+        <field name="synonyms_indextime" type="synonyms_indextime" indexed="true" stored="true"/>
+        <field name="synonyms_both" type="synonyms_both" indexed="true" stored="true"/>
+        <field name="synonyms_querytime" type="synonyms_querytime" indexed="true" stored="true"/>
+    </fields>
+    <uniqueKey>id</uniqueKey>
+    <types>
+        <fieldType name="synonyms_indextime" class="solr.TextField" positionIncrementGap="100" >
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory" />
+                <filter class="solr.StandardFilterFactory" />
+                <filter class="solr.LowercaseFilterFactory" />
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="0" />
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.GermanMinimalStemFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory" />
+                <filter class="solr.StandardFilterFactory" />
+                <filter class="solr.LowercaseFilterFactory" />
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="0" />
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.GermanMinimalStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="synonyms_both" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory" />
+                <filter class="solr.StandardFilterFactory" />
+                <filter class="solr.LowercaseFilterFactory" />
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="0" />
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.GermanMinimalStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="synonyms_querytime" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory" />
+                <filter class="solr.StandardFilterFactory" />
+                <filter class="solr.LowercaseFilterFactory" />
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="0" />
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.GermanMinimalStemFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory" />
+                <filter class="solr.StandardFilterFactory" />
+                <filter class="solr.LowercaseFilterFactory" />
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="0" />
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.ASCIIFoldingFilterFactory"/>
+                <filter class="solr.GermanMinimalStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="string" class="solr.StrField" />
+
+        <fieldType name="spell_querytime" class="solr.TextField" positionIncrementGap="100">
+
+        </fieldType>
+
+        <fieldType name="spell_both" class="solr.TextField" positionIncrementGap="100">
+
+        </fieldType>
+
+        <fieldType name="spell_indextime" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowercaseFilterFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.TrimFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowercaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" words="lang/stopwords_de.txt" ignoreCase="true"/>
+                <filter class="solr.TrimFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+        </fieldType>
+   </types>
+</schema>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/build/classes/main" />
+    <output-test url="file://$MODULE_DIR$/build/classes/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Gradle: junit-4.10" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: solr-test-framework-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: slf4j-simple-1.6.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-logging-1.1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hamcrest-core-1.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-test-framework-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-analyzers-common-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-analyzers-kuromoji-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-analyzers-phonetic-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-codecs-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-core-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-expressions-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-grouping-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-highlighter-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-join-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-memory-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-misc-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-queries-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-queryparser-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-spatial-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: lucene-suggest-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: solr-core-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: solr-solrj-4.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hppc-0.5.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: junit4-ant-2.0.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: randomizedtesting-runner-2.0.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: guava-14.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: protobuf-java-2.5.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: concurrentlinkedhashmap-lru-1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: spatial4j-0.4.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-cli-1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-codec-1.7" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-configuration-1.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-fileupload-1.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-io-2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: commons-lang-2.6" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: dom4j-1.6.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: joda-time-2.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: log4j-1.2.16" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: antlr-runtime-3.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: ant-1.8.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hadoop-annotations-2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hadoop-auth-2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: zookeeper-3.4.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hadoop-common-2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: hadoop-hdfs-2.2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: httpclient-4.3.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: httpcore-4.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: httpmime-4.3.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: wstx-asl-3.2.7" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-continuation-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-deploy-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-http-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-io-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-jmx-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-security-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-server-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-servlet-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-util-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-webapp-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: jetty-xml-8.1.10.v20130312" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: javax.servlet-3.0.0.v201112011016" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: noggit-0.5" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: asm-4.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: asm-commons-4.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: slf4j-api-1.6.1" level="project" />
+  </component>
+</module>
+

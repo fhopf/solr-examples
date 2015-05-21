@@ -1,0 +1,4 @@
+build/
+.gradle
+solrhome/collection1/data/
+.idea
